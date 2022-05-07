@@ -76,6 +76,12 @@ module.exports = {
       },
       cnpjId: {
         type: Sequelize.INTEGER,
+        references: {
+          model: 'cnpjs',
+          key: 'id',
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
       },
       confirm: {
         type: Sequelize.BOOLEAN,

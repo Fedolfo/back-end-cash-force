@@ -77,6 +77,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
 
+  buyers.associate = (models) => {
+    buyers.belongsTo(models.cnpjs, {
+      foreignKey: 'cnpjId',
+      as: 'cnpj',
+    });
+  }
+
   return buyers;
 
 }
