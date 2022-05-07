@@ -77,8 +77,8 @@ module.exports = {
       cnpjId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'cnpjs',
           key: 'id',
+          model: 'cnpjs',
         },
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
