@@ -3,11 +3,10 @@ import CommonRoutesConfig from './commonRoutesConfig';
 
 class OrderRoute extends CommonRoutesConfig {
 
-  private ordersController: OrdersController;
+  private ordersController = new OrdersController();
 
   constructor() {
     super();
-    this.ordersController = new OrdersController();
     this.configureRoutes();
   }
 
