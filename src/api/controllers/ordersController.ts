@@ -1,8 +1,7 @@
 import OrdersService from '../services/ordersService';
 import { Request, Response } from 'express'
-import IOrdersController from 'api/typescript/interfaces/controllers/ordersControllers.interface';
 
-class OrdersController implements IOrdersController {
+class OrdersController {
 
   private ordersService = new OrdersService();
 

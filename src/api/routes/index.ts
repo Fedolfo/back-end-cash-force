@@ -10,10 +10,10 @@ class OrderRoute extends CommonRoutesConfig {
     this.configureRoutes();
   }
 
-  configureRoutes() {
+  public configureRoutes() {
     this.router.get(
       '/orders',
-      this.ordersController.getAll,
+      this.ordersController.getAllOrders,
     );
   }
 }

@@ -1,7 +1,7 @@
-import cors from 'cors';
 import express from 'express';
 import DomainError from './middlewares/domainError';
 import OrderRoute from './routes';
+import 'express-async-errors';
 
 class App {
   public app: express.Application = express();
@@ -9,24 +9,27 @@ class App {
   constructor() {
     this.config();
     this.routesConfig();
+    this.errorDomain();
   }
 
   private config(): void {
     const accessControl: express.RequestHandler = (_req, res, next) => {
       res.header('Access-Control-Allow-Origin', '*');
-      res.header('Access-Control-Allow-Methods', 'GET,POST,DELETE,OPTIONS,PUT,PATCH');
+      res.header('Access-Control-Allow-Methods', 'GET');
       res.header('Access-Control-Allow-Headers', '*');
       next();
     };
 
     this.app.use(express.json());
     this.app.use(accessControl);
-    this.app.use(cors());
-    this.app.use(DomainError.errorMiddleware);
   }
 
-  routesConfig() {
+  private routesConfig(): void {
     this.app.use(new OrderRoute().router);
+  }
+
+  private errorDomain(): void {
+    this.app.use(DomainError.errorMiddleware);
   }
 
   public start(PORT: string | number): void {
