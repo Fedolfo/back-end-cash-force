@@ -8,13 +8,6 @@ class Cnpjs extends Model<ICnpjsAttributes> {
   declare companyType: string;
   declare createdAt: Date;
   declare updatedAt: Date;
-
-  static associate(models: any) {
-    Cnpjs.hasMany(models.buyers, {
-      foreignKey: 'cnpjId',
-      as: 'buyers',
-    });
-  };
 }
 
 Cnpjs.init({
