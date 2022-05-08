@@ -1,6 +1,7 @@
 import cors from 'cors';
 import express from 'express';
 import DomainError from './middlewares/domainError';
+import OrderRoute from './routes';
 
 class App {
   public app: express.Application = express();
@@ -25,9 +26,7 @@ class App {
   }
 
   routesConfig() {
-    this.app.use('/', (req, res) => {
-      res.send('Hello World');
-    });
+    this.app.use(new OrderRoute().router);
   }
 
   public start(PORT: string | number): void {
