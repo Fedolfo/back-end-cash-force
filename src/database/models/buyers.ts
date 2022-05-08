@@ -1,6 +1,8 @@
 import IBuyersAttributes from 'database/interfaces/models/interfaceByBuyers';
 import { Model, DataTypes } from 'sequelize';
 import db from '.';
+import Cnpjs from './cnpjs';
+
 class Buyers extends Model<IBuyersAttributes> {
   declare id: number;
   declare name: string;
@@ -27,12 +29,6 @@ class Buyers extends Model<IBuyersAttributes> {
   declare confirm: boolean;
   declare email: string;
 
-  static associate(models: any) {
-    Buyers.belongsTo(models.cnpjs, {
-      foreignKey: 'cnpjId',
-      as: 'cnpj',
-    });
-  }
 }
 
 Buyers.init({
@@ -119,6 +115,16 @@ Buyers.init({
     type: DataTypes.STRING,
   }
 }, { sequelize: db, modelName: 'buyers' });
+
+Buyers.belongsTo(Cnpjs, {
+  foreignKey: 'cnpjId',
+  as: 'cnpj',
+});
+
+Cnpjs.hasMany(Buyers, {
+  foreignKey: 'cnpjId',
+  as: 'buyers',
+});
 
 export default Buyers;
 
