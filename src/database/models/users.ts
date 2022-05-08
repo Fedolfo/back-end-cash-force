@@ -1,4 +1,4 @@
-import iUserAttributes from 'database/interfaces/models/interfaceByUsers';
+import iUserAttributes from 'api/typescript/interfaces/models/usersModel.interface';
 import { Model, DataTypes } from 'sequelize';
 import db from '.';
 
@@ -11,8 +11,8 @@ class Users extends Model<iUserAttributes> {
   declare departament: string;
   declare verificationCode: string;
   declare emailChecked: boolean;
-  declare createdAt: Date;
-  declare updatedAt: Date;
+  declare readonly createdAt: Date;
+  declare readonly updatedAt: Date;
   declare cashforceAdm: boolean;
 }
 

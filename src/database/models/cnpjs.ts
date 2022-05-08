@@ -1,4 +1,4 @@
-import ICnpjsAttributes from 'database/interfaces/models/interfaceByCnpjs';
+import ICnpjsAttributes from 'api/typescript/interfaces/models/cnpjsModel.interface';
 import { Model, DataTypes } from 'sequelize';
 import db from '.';
 
@@ -6,8 +6,8 @@ class Cnpjs extends Model<ICnpjsAttributes> {
   declare id: number;
   declare cnpj: string;
   declare companyType: string;
-  declare createdAt: Date;
-  declare updatedAt: Date;
+  declare readonly createdAt: Date;
+  declare readonly updatedAt: Date;
 }
 
 Cnpjs.init({

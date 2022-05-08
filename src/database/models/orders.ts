@@ -1,4 +1,4 @@
-import IOrderAttributes from 'database/interfaces/models/interfaceByOrders';
+import IOrderAttributes from 'api/typescript/interfaces/models/ordersModel.interface';
 import { Model, DataTypes } from 'sequelize'
 import db from '.';
 import Buyers from './buyers';
@@ -19,8 +19,8 @@ class Orders extends Model<IOrderAttributes> {
   declare nNf: string;
   declare CTE: string;
   declare value: string;
-  declare createdAt: Date;
-  declare updatedAt: Date;
+  declare readonly createdAt: Date;
+  declare readonly updatedAt: Date;
   declare cnpjId: number;
   declare userId: number;
   declare buyerId: number;

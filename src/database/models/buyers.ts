@@ -1,4 +1,4 @@
-import IBuyersAttributes from 'database/interfaces/models/interfaceByBuyers';
+import IBuyersAttributes from 'api/typescript/interfaces/models/buyersModel.interface';
 import { Model, DataTypes } from 'sequelize';
 import db from '.';
 import Cnpjs from './cnpjs';
@@ -23,8 +23,8 @@ class Buyers extends Model<IBuyersAttributes> {
   declare state: string;
   declare phoneNumber: string;
   declare situation: string;
-  declare createdAt: Date;
-  declare updatedAt: Date;
+  declare readonly createdAt: Date;
+  declare readonly updatedAt: Date;
   declare cnpjId: number;
   declare confirm: boolean;
   declare email: string;

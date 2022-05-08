@@ -1,4 +1,4 @@
-import IProvidersAttributes from 'database/interfaces/models/interfaceByProviders';
+import IProvidersAttributes from 'api/typescript/interfaces/models/providersModel.interface';
 import { Model, DataTypes } from 'sequelize'
 import db from '.'
 
@@ -27,8 +27,8 @@ class Providers extends Model<IProvidersAttributes> {
   declare phoneNumber: string;
   declare situation: string;
   declare situationDate: string;
-  declare createdAt: Date;
-  declare updatedAt: Date;
+  declare readonly createdAt: Date;
+  declare readonly updatedAt: Date;
   declare cnpjId: number;
   declare email: string;
 }
