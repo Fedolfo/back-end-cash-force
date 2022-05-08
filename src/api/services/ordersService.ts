@@ -1,10 +1,12 @@
-import Buyers from '../../database/models/buyers';
-import Cnpjs from '../../database/models/cnpjs';
-import Providers from '../../database/models/users';
-import Orders from '../../database/models/orders';
-import Users from '../../database/models/users';
+import interfaceByOrders from "api/typescript/interfaces/models/ordersModel.interface";
+import IOrderServices from "api/typescript/interfaces/services/ordersServices.interface";
+import Buyers from "../../database/models/buyers";
+import Cnpjs from "../../database/models/cnpjs";
+import Orders from "../../database/models/orders";
+import Providers from "../../database/models/providers";
+import Users from "../../database/models/users";
 
-class OrdersService {
+class OrdersService implements IOrderServices {
 
   private orders = Orders;
 
@@ -16,8 +18,8 @@ class OrdersService {
 
   private users = Users;
 
-  async getAll() {
-    return await this.orders.findAll({
+  public async getAllOrders(): Promise<interfaceByOrders[]> {
+    return (await this.orders.findAll({
       include: [
         {
           model: this.buyers,
@@ -38,6 +40,8 @@ class OrdersService {
           all: true,
         }
       ],
+    })).map((order) => {
+      return order.get({ plain: true });
     });
   }
 }
