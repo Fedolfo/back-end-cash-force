@@ -1,6 +1,10 @@
 import IOrderAttributes from 'database/interfaces/models/interfaceByOrders';
 import { Model, DataTypes } from 'sequelize'
 import db from '.';
+import Buyers from './buyers';
+import Cnpjs from './cnpjs';
+import Providers from './providers';
+import Users from './users';
 
 class Orders extends Model<IOrderAttributes> {
   declare id: number;
@@ -27,27 +31,6 @@ class Orders extends Model<IOrderAttributes> {
   declare cargoPackingList: string;
   declare deliveryCtrc: string;
 
-  static associate(models: any) {
-    Orders.belongsTo(models.cnpjs, {
-      foreignKey: 'cnpjId',
-      as: 'cnpj',
-    })
-
-    Orders.belongsTo(models.users, {
-      foreignKey: 'userId',
-      as: 'user',
-    })
-
-    Orders.belongsTo(models.users, {
-      foreignKey: 'buyerId',
-      as: 'buyer',
-    })
-
-    Orders.belongsTo(models.providers, {
-      foreignKey: 'providerId',
-      as: 'provider',
-    })
-  }
 }
 
 Orders.init({
@@ -133,5 +116,25 @@ Orders.init({
     type: DataTypes.STRING,
   },
 }, { sequelize: db, modelName: 'orders' });
+
+Orders.belongsTo(Buyers, {
+  foreignKey: 'buyerId',
+  as: 'buyer',
+})
+
+Orders.belongsTo(Providers, {
+  foreignKey: 'providerId',
+  as: 'provider',
+})
+
+Orders.belongsTo(Cnpjs, {
+  foreignKey: 'cnpjId',
+  as: 'cnpj',
+})
+
+Orders.belongsTo(Users, {
+  foreignKey: 'userId',
+  as: 'users',
+})
 
 export default Orders;
