@@ -43,7 +43,7 @@ Desenvolvido para ser consumido para o front-end onde simula uma tabela ERP [fro
 ```bash
   npm run compose:up ou docker-compose up -d --build
 ```
-4. No momento que subir os container retornara essa messagem no terminal
+4. No momento que subir os contain{er retornará essa messagem no terminal
 ```bash
   Creating db ... done
   Creating cash_force           ... done
@@ -53,7 +53,7 @@ Desenvolvido para ser consumido para o front-end onde simula uma tabela ERP [fro
 ```bash
   back-end: localhost:3001/orders
 ```
-6. Para rodar os testes de integração, caso estiver na raiz do projeto
+1. Para rodar os testes de integração
 ```bash
   docker-compose exec backend npm test
 ```
