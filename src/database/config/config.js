@@ -7,7 +7,6 @@ module.exports = {
     "database": process.env.MYSQL_DB_NAME,
     "host": process.env.DB_HOST,
     "dialect": 'mysql',
-
   },
   "test": {
     "username": "root",
