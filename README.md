@@ -49,7 +49,7 @@ Desenvolvido para ser consumido para o front-end, onde simula uma tabela ERP [fr
 ```bash
   back-end: localhost:3001/orders
 ```
-1. Para rodar os testes de integração
+6. Para rodar os testes de integração
 ```bash
   docker-compose exec backend npm test
 ```
