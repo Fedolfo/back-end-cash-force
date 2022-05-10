@@ -1,0 +1,51 @@
+version: '3.9'
+services:
+  backend:
+    container_name: cash_force
+    entrypoint: ["/bin/bash", "-c", "sleep 30 && npm start"]
+    build: .
+    ports:
+      - 3001:3001
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - PORT=3001
+      # Os dados abaixo se referem ao container `db`
+      - DB_USER=root
+      - DB_PASS=123456
+      - DB_HOST=db
+      - MYSQL_DB_NAME=cash-force
+      - DB_PORT=3306
+    healthcheck:
+      test: ["CMD", "lsof", "-t", "-i:3001"] # Caso utilize outra porta interna para o back, altere ela aqui também
+      timeout: 10s
+      retries: 5
+  migration:
+    container_name: cash_force_migration
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - PORT=3001
+      - DB_USER=root
+      - DB_PASS=123456
+      - DB_HOST=db
+      - MYSQL_DB_NAME=cash-force
+      - DB_PORT=3306
+    entrypoint: ["npm", "run", "db:reset" ]
+  db:
+    image: mysql:5.7
+    container_name: db
+    ports:
+      - 3002:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+    restart: 'always'
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost", "-p123456"] # Deve aguardar o banco ficar operacional
+      timeout: 10s
+      retries: 5
+    cap_add:
+      - SYS_NICE # Deve omitir alertas menores
