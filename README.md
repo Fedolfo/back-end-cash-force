@@ -23,10 +23,6 @@ Desenvolvido para ser consumido para o front-end onde simula uma tabela ERP [fro
 * shelljs
 * superagent
 
-## Bibliotecas utilizadas
-
-* Axios
-
 ## Para ser feito a instalação do projeto em sua máquina dockerizado
 
 É necessário ter [docker](https://docs.docker.com/get-docker/)
@@ -39,11 +35,14 @@ Desenvolvido para ser consumido para o front-end onde simula uma tabela ERP [fro
 ```bash
   cd back-end-cash-force
 ```
-1. Suba o containêr(Está com erro de compilação do typescript).
+3. Suba o containêr(Está com erro de compilação do typescript).
 ```bash
 docker build . -t back-cash
 docker run -it -p 3001:3001 --rm --name back-cash-force back-cash
 ```
+
+Só é possivel instalar o back-end localmente >:(
+
 4. Instale as dependências
 ```bash
 npm install
