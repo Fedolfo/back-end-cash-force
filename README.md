@@ -29,7 +29,7 @@ Desenvolvido para ser consumido para o front-end onde simula uma tabela ERP [fro
 
 ## Para ser feito a instalação do projeto em sua máquina dockerizado
 
-É necessário ter [docker](https://docs.docker.com/get-docker/)
+É necessário ter [docker](https://docs.docker.com/get-docker/) e [docker-compose](https://docs.docker.com/compose/install/)
 
 1. Clone o repositório
 ```bash
@@ -39,21 +39,24 @@ Desenvolvido para ser consumido para o front-end onde simula uma tabela ERP [fro
 ```bash
   cd back-end-cash-force
 ```
-1. Suba o containêr(Está com erro de compilação do typescript).
+3. Suba os containêrs
 ```bash
-docker build . -t back-cash
-docker run -it -p 3001:3001 --rm --name back-cash-force back-cash
+  npm run compose:up ou docker-compose up -d --build
 ```
-4. Instale as dependências
+4. No momento que subir os container retornara essa messagem no terminal
 ```bash
-npm install
+  Creating db ... done
+  Creating cash_force           ... done
+  Creating cash_force_migration ... done
 ```
-5. Inicie o aplicativo
-```bash
-npm run nodemon
-```
-
-6. Para acessar a aplicação
+5. Para acessar as aplicação
 ```bash
   back-end: localhost:3001/orders
 ```
+6. Para rodar os testes de integração, caso estiver na raiz do projeto
+```bash
+  docker-compose exec backend npm test
+```
+7. Para remover a API
+```bash
+  docker-compose down --rmi local --volumes --remove-orphans
