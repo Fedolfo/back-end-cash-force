@@ -1,10 +1,10 @@
-# Projeto Front-end-Cash-force
+# Projeto back-end-Cash-force
 
 ## Sobre o projeto
 
 Back-end do CashForce é uma API de simulação de ERP(Enterprise Resource Planning).
 
-Desenvolvido para ser consumido para o front-end onde simula uma tabela ERP [front-end](https://github.com/Fedolfo/front-end-cash-force)
+Desenvolvido para ser consumido para o front-end, onde simula uma tabela ERP [front-end](https://github.com/Fedolfo/front-end-cash-force)
 
 ## Tecnologias utilizadas
 
@@ -43,7 +43,7 @@ Desenvolvido para ser consumido para o front-end onde simula uma tabela ERP [fro
 ```bash
   npm run compose:up ou docker-compose up -d --build
 ```
-4. No momento que subir os contain{er retornará essa messagem no terminal
+4. No momento que subir os containêr retornará essa messagem no terminal
 ```bash
   Creating db ... done
   Creating cash_force           ... done
