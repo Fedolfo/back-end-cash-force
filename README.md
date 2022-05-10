@@ -23,10 +23,6 @@ Desenvolvido para ser consumido para o front-end, onde simula uma tabela ERP [fr
 * shelljs
 * superagent
 
-## Bibliotecas utilizadas
-
-* Axios
-
 ## Para ser feito a instalação do projeto em sua máquina dockerizado
 
 É necessário ter [docker](https://docs.docker.com/get-docker/) e [docker-compose](https://docs.docker.com/compose/install/)
