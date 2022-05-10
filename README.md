@@ -45,7 +45,7 @@ Desenvolvido para ser consumido para o front-end, onde simula uma tabela ERP [fr
   Creating cash_force           ... done
   Creating cash_force_migration ... done
 ```
-5. Para acessar as aplicação
+5. Para acessar a aplicação
 ```bash
   back-end: localhost:3001/orders
 ```
