@@ -10,6 +10,8 @@
     "dev": "ts-node ./src/api/server.ts",
     "test": "mocha -r ts-node/register ./src/tests/*$NAME*.{test,spec}.ts -t 10000 --exit",
     "lint": "eslint ./src --ext .ts",
+    "compose:up": "docker-compose up -d --build)",
+    "compose:down": "docker-compose down --remove-orphans)",
     "nodemon": "nodemon --watch \"./src/**\" --ext \"ts,js\" --ignore \"src/**/*.spec.ts,src/**/*.json\" --exec \"ts-node src/api/server.ts\""
   },
   "repository": {
