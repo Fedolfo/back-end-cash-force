@@ -1,5 +1,7 @@
 FROM node:16-alpine
 
+RUN apk add --no-cache bash
+
 WORKDIR /app
 
 COPY package*.json ./
@@ -14,4 +16,4 @@ RUN adduser -D CashForce
 
 USER CashForce
 
-ENTRYPOINT ["npm", "run", "nodemon"]
+ENTRYPOINT ["npm", "start"]
