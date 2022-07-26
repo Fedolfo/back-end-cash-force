@@ -29,7 +29,7 @@ Desenvolvido para ser consumido para o front-end, onde simula uma tabela ERP [fr
 
 1. Clone o repositório
 ```bash
-  git clone `git@github.com:Fedolfo/back-end-cash-force.git`
+  git clone git@github.com:Fedolfo/back-end-cash-force.git
 ```
 2. Entre no arquivo
 ```bash
