@@ -36,6 +36,7 @@ Desenvolvido para ser consumido para o front-end, onde simula uma tabela ERP [fr
   cd back-end-cash-force
 ```
 3. Suba os containêrs
+⚠️ Caso ocorra algum erro de versão, troque no docker-compose o version para '2.1'
 ```bash
   npm run compose:up ou docker-compose up -d --build
 ```
